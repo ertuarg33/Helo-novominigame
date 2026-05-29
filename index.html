@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+<meta name="theme-color" content="#02110d" />
+<title>Para Helô</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script defer src="script.js"></script>
+
+</head>
+<body>
+  <!-- Botão de música -->
+  <button id="musicBtn" class="music-btn" aria-label="Música">
+    <span class="music-ico" id="musicIco">♪</span>
+  </button>
+
+  <!-- 1. INTRO -->
+  <section class="scene scene--intro active" id="scene-intro">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="intro-wrap">
+      <p class="intro-line" id="introLine1">para alguém muito especial</p>
+      <p class="intro-sub" id="introLine2">uma pequena jornada feita com carinho</p>
+    </div>
+  </section>
+
+  <!-- 2. HERO -->
+  <section class="scene scene--hero" id="scene-hero">
+    <div class="aurora aurora--soft" aria-hidden="true"></div>
+    <article class="card glass">
+      <h1 class="hero-title">Oii, Minha princesa.</h1>
+      <p class="hero-text">
+        Antes da carta, há um caminho.<br/>
+        Quatro minigames, uma só intenção:<br/>
+        dizer o quanto você importa.
+      </p>
+      <button class="btn-primary" data-next="scene-maze">Começar a jornada</button>
+      <div class="stepper" aria-hidden="true">
+        <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </article>
+  </section>
+
+  <!-- 3. LABIRINTO -->
+  <section class="scene scene--game" id="scene-maze">
+    <header class="game-head">
+      <span class="chip">1 / 4</span>
+      <h2>Labirinto</h2>
+      <p class="muted">Chegue até o coração.</p>
+    </header>
+    <div class="canvas-wrap canvas-wrap--maze">
+      <canvas id="mazeCanvas"></canvas>
+    </div>
+    <div class="touchpad" id="touchpad" aria-label="Controles">
+      <button class="pad pad--up" data-dir="up">▲</button>
+      <button class="pad pad--left" data-dir="left">◀</button>
+      <button class="pad pad--down" data-dir="down">▼</button>
+      <button class="pad pad--right" data-dir="right">▶</button>
+    </div>
+  </section>
+
+  <!-- 4. MEMÓRIA -->
+  <section class="scene scene--game" id="scene-memory">
+    <header class="game-head">
+      <span class="chip">2 / 4</span>
+      <h2>Memória</h2>
+      <p class="muted">Encontre os pares.</p>
+    </header>
+    <div class="memory-grid" id="memoryGrid"></div>
+  </section>
+
+  <!-- 5. FRASES -->
+  <section class="scene scene--game" id="scene-phrases">
+    <header class="game-head">
+      <span class="chip">3 / 4</span>
+      <h2>Frases</h2>
+      <p class="muted" id="phraseHint">Toque nas palavras na ordem certa.</p>
+    </header>
+    <div class="phrase-target" id="phraseTarget"></div>
+    <div class="phrase-pool" id="phrasePool"></div>
+  </section>
+
+  <!-- 6. CONSTELAÇÃO -->
+  <section class="scene scene--game" id="scene-stars">
+    <header class="game-head">
+      <span class="chip">4 / 4</span>
+      <h2>Constelação</h2>
+      <p class="muted">Toque nas estrelas em ordem.</p>
+    </header>
+    <div class="canvas-wrap canvas-wrap--stars">
+      <canvas id="starsCanvas"></canvas>
+    </div>
+  </section>
+
+  <!-- 7. TRANSIÇÃO -->
+  <section class="scene scene--transition" id="scene-transition">
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="trans-wrap">
+      <p class="trans-line">você chegou até aqui.</p>
+      <p class="trans-line">essa parte é só sua.</p>
+      <p class="trans-line">tem uma carta esperando por você.</p>
+      <button class="btn-primary" data-next="scene-letter">Ler a carta</button>
+    </div>
+  </section>
+
+  <!-- 8. CARTA -->
+  <section class="scene scene--letter" id="scene-letter">
+    <article class="letter glass">
+      <h2 class="letter-title">Para Helô</h2>
+      <p class="letter-body" id="letterBody"></p>
+      <span class="letter-cursor" id="letterCursor">|</span>
+    </article>
+  </section>
+
+  <!-- Música fixa: coloque o arquivo dentro da pasta /áudio/ com o nome musica.mp3 -->
+  <audio id="songEl" src="áudio/musica.mp3" loop preload="auto"></audio>
+  <script src="/experience.js" defer></script>
+</body>
+</html>
